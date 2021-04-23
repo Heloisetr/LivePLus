@@ -30,38 +30,38 @@ function calculateCell(coordData: CoordinatesContentType, index: number): boolea
 
   const length = coordData.mapLength;
   
-  if ((index % length) !== 0 && coordData.coordinates[index - 1]) {
+  if (coordData.coordinates[index - 1]) {
     countAlive = countAlive + 1;
   }
-  if ((index % (length - 1)) !== 0 && coordData.coordinates[index + 1]) {
+  if (coordData.coordinates[index + 1]) {
     countAlive = countAlive + 1;
   }
-  if (index >= length && coordData.coordinates[index - length]) {
+  if (coordData.coordinates[index - length]) {
     countAlive = countAlive + 1;
   }
-  if (index <= (length * (length - 1)) && coordData.coordinates[index + length]) {
+  if (coordData.coordinates[index + length]) {
     countAlive = countAlive + 1;
   }
-  if ((index % length) !== 0 && index >= length && coordData.coordinates[index - (1 + length)]) {
+  if (coordData.coordinates[index - (1 + length)]) {
     countAlive = countAlive + 1;
   }
-  if ((index % (length - 1)) !== 0 && index >= length && coordData.coordinates[index - (length - 1)]) {
+  if (coordData.coordinates[index - (length - 1)]) {
     countAlive = countAlive + 1;
   }
-  if ((index % length) !== 0 && index <= (length * (length - 1)) && coordData.coordinates[index + (length - 1)]) {
+  if (coordData.coordinates[index + (length - 1)]) {
     countAlive = countAlive + 1;
   }
-  if ((index % (length - 1)) !== 0 && index <= (length * (length - 1)) && coordData.coordinates[index + (1 + length)]) {
+  if (coordData.coordinates[index + (1 + length)]) {
     countAlive = countAlive + 1;
   }
 
-  switch(coordData.coordinates[index]) {
-    case true:
-      return ((countAlive === 2 || countAlive === 3) ? true : false);
+  switch(countAlive) {
+    case 2:
+      return (coordData.coordinates[index]) ? true : false;
 
-    case false:
-      return (countAlive === 3 ? true : false);
-
+    case 3:
+      return true;
+    
     default:
       return false;
   }
