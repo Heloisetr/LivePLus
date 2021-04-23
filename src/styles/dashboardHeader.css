@@ -1,0 +1,18 @@
+.dashboardHeader {
+  display: flex;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  height: 90px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.dashboardHeaderLogo {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
